@@ -69,34 +69,6 @@ public class Synonyms : MonoBehaviour
         {1, 3, 2, 4, 7, 5, 2, 0, 8, 9, 3}
     };
 
-    private int[,] rowSwap = new int[11, 11]{
-        {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 0},
-        {6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 0},
-        {2, 3, 5, 7, 9, 1, 4, 6, 8, 0, 4},
-        {4, 2, 1, 8, 6, 5, 9, 3, 0, 7, 2},
-        {5, 1, 2, 4, 9, 0, 6, 9, 3, 8, 7},
-        {8, 4, 2, 1, 9, 3, 1, 6, 5, 7, 0},
-        {0, 0, 9, 8, 7, 6, 5, 4, 3, 2, 1},
-        {5, 6, 7, 5, 1, 3, 9, 0, 2, 4, 8},
-        {7, 1, 2, 3, 7, 5, 6, 4, 8, 9, 0},
-        {3, 7, 0, 2, 8, 0, 1, 4, 6, 9, 5},
-        {1, 3, 2, 4, 7, 5, 6, 0, 8, 9, 3}
-    };
-
-    private int[,] rowSwapDouble = new int[11, 11]{
-        {1, 2, 3, 4, 5, 6, 4, 8, 9, 0, 0},
-        {6, 7, 8, 9, 0, 1, 4, 3, 4, 5, 0},
-        {2, 3, 5, 7, 9, 1, 8, 6, 8, 0, 4},
-        {4, 2, 1, 8, 6, 5, 8, 3, 0, 7, 2},
-        {5, 1, 2, 4, 9, 0, 2, 9, 3, 8, 7},
-        {8, 4, 2, 1, 9, 3, 2, 6, 5, 7, 0},
-        {0, 0, 9, 8, 7, 6, 0, 4, 3, 2, 1},
-        {5, 6, 7, 5, 1, 3, 8, 0, 2, 4, 8},
-        {7, 1, 2, 3, 7, 5, 2, 4, 8, 9, 0},
-        {3, 7, 0, 2, 8, 0, 2, 4, 6, 9, 5},
-        {1, 3, 2, 4, 7, 5, 2, 0, 8, 9, 3}
-    };
-
     // Loading Screen
     void Start()
     {
@@ -255,7 +227,7 @@ public class Synonyms : MonoBehaviour
         else return false;
     }
 
-    private string TwitchHelpMessage = "";
+    private string TwitchHelpMessage = "Cycle the words using !{0} cycle. Move up and down individually using !{0} up/down. Submit 'okay' or 'cancel' by using !{0} [word]";
 
     private IEnumerator ProcessTwitchCommand(string command)
     {
