@@ -141,6 +141,7 @@ public class Synonyms : MonoBehaviour
         Module.HandlePass();
         Audio.PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.CorrectChime, transform);
         _isSolved = true;
+        NumberText.color = Color.clear;
         Debug.LogFormat("[Synonyms #{0}] The module has been solved!", _moduleID);
     }
 
@@ -180,12 +181,14 @@ public class Synonyms : MonoBehaviour
                 else Strike(string.Format("Selected: {0}, Expected: {1}", badButton[current], goodButton[correct]));
                 break;
             case 2:
+                if (_isSolved) break;
                 current++;
                 if (current > (goodButton.Count - 1)) current = 0;
                 GoodLabel.text = goodButton[current];
                 BadLabel.text = badButton[current];
                 break;
             case 3:
+                if (_isSolved) break;
                 current--;
                 if (current < 0) current = goodButton.Count - 1;
                 GoodLabel.text = goodButton[current];
@@ -215,7 +218,6 @@ public class Synonyms : MonoBehaviour
         }
         if (!rule) rule = true;
         var matchCount = 0;
-        var log = "";
 
         for (int i = 0; i < goodButton.Count; i++)
         {
