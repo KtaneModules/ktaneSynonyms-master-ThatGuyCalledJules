@@ -28,7 +28,6 @@ public class Synonyms : MonoBehaviour
     private int lastDigit;
     private int _moduleID;
     private int current;
-    private bool Active;
     private bool _isSolved;
     private bool ind;
     private bool EmptyPorts;
@@ -55,25 +54,10 @@ public class Synonyms : MonoBehaviour
         {1, 3, 2, 4, 7, 5, 6, 0, 8, 9, 3}
     };
 
-    private int[,] columnDouble = new int[11, 11]{
-        {1, 2, 3, 4, 5, 6, 4, 8, 9, 0, 0},
-        {0, 0, 9, 8, 7, 6, 0, 4, 3, 2, 1},
-        {2, 3, 5, 7, 9, 1, 8, 6, 8, 0, 4},
-        {4, 2, 1, 8, 6, 5, 8, 3, 0, 7, 2},
-        {5, 1, 2, 4, 9, 0, 2, 9, 3, 8, 7},
-        {8, 4, 2, 1, 9, 3, 2, 6, 5, 7, 0},
-        {6, 7, 8, 9, 0, 1, 4, 3, 4, 5, 0},
-        {5, 6, 7, 5, 1, 3, 8, 0, 2, 4, 8},
-        {7, 1, 2, 3, 7, 5, 2, 4, 8, 9, 0},
-        {3, 7, 0, 2, 8, 0, 2, 4, 6, 9, 5},
-        {1, 3, 2, 4, 7, 5, 2, 0, 8, 9, 3}
-    };
-
     // Loading Screen
     void Start()
     {
         _moduleID = _moduleIDCounter++;
-        Module.OnActivate += delegate () { Active = true; };
         lastDigit = Info.GetSerialNumberNumbers().Last();
         ind = Info.IsIndicatorOn(Indicator.IND);
         EmptyPorts = Info.GetPortPlates().Where(x => x.Length == 0).Count() == 2;
@@ -229,7 +213,9 @@ public class Synonyms : MonoBehaviour
         else return false;
     }
 
-    private string TwitchHelpMessage = "Cycle the words using !{0} cycle. Move up and down individually using !{0} up/down. Submit 'okay' or 'cancel' by using !{0} [word]";
+#pragma warning disable 414
+    private readonly string TwitchHelpMessage = "Cycle the words using “!{0} cycle”. Move up and down individually using “!{0} up/down”. Press a button by using “!{0} <word>”.";
+#pragma warning restore 414
 
     private IEnumerator ProcessTwitchCommand(string command)
     {
