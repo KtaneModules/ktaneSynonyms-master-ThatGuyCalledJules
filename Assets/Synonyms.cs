@@ -214,7 +214,7 @@ public class Synonyms : MonoBehaviour
     }
 
 #pragma warning disable 414
-    private readonly string TwitchHelpMessage = "Cycle the words using “!{0} cycle”. Move up and down individually using “!{0} up/down”. Press a button by using “!{0} <word>”.";
+    private readonly string TwitchHelpMessage = "Cycle the words using “!{0} cycle”. Move up and down individually using “!{0} up/down”. Press a button by using “!{0} submit <word>”.";
 #pragma warning restore 414
 
     private IEnumerator ProcessTwitchCommand(string command)
