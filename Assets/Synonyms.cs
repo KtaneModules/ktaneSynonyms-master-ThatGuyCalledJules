@@ -263,8 +263,8 @@ public class Synonyms : MonoBehaviour
             {
                 yield return null;
                 yield return Buttons[3].OnInteract();
-                yield return null;
             }
+            yield return null;
             yield return button.OnInteract();
         }
     }
