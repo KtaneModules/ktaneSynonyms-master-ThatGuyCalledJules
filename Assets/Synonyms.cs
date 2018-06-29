@@ -214,7 +214,7 @@ public class Synonyms : MonoBehaviour
     }
 
 #pragma warning disable 414
-    private readonly string TwitchHelpMessage = "Cycle the words using “!{0} cycle”. Move up and down individually using “!{0} up/down”. Press a button by using “!{0} <word>”.";
+    private readonly string TwitchHelpMessage = "Cycle the words using “!{0} cycle”. Move up and down individually using “!{0} up/down”. Press a button by using “!{0} submit <word>”.";
 #pragma warning restore 414
 
     private IEnumerator ProcessTwitchCommand(string command)
@@ -242,7 +242,7 @@ public class Synonyms : MonoBehaviour
         else if (command.StartsWith("submit"))
         {
             var split = command.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-            if (split.Length > 2) yield break;
+            if (split.Length != 2) yield break;
             var list = new List<string>();
             var button = Buttons[0];
             if (split[1].ToUpperInvariant().EqualsAny(goodWords))
@@ -263,8 +263,8 @@ public class Synonyms : MonoBehaviour
             {
                 yield return null;
                 yield return Buttons[3].OnInteract();
-                yield return null;
             }
+            yield return null;
             yield return button.OnInteract();
         }
     }
