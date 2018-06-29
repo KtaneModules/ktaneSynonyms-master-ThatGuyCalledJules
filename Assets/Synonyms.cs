@@ -242,7 +242,7 @@ public class Synonyms : MonoBehaviour
         else if (command.StartsWith("submit"))
         {
             var split = command.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-            if (split.Length > 2) yield break;
+            if (split.Length != 2) yield break;
             var list = new List<string>();
             var button = Buttons[0];
             if (split[1].ToUpperInvariant().EqualsAny(goodWords))
