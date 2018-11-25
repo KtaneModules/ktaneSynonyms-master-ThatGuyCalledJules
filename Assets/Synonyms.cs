@@ -96,7 +96,6 @@ public class Synonyms : MonoBehaviour
         }
         if (unicorn < 3 || unicorn > 97)
         {
-            screen = 3;
             match = false;
         }
 
